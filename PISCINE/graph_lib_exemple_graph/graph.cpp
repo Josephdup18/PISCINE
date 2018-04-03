@@ -172,7 +172,6 @@ void Graph::make_example()
     add_interfaced_vertex(5,  0.0, 100, 500, "bad_clowns_xx3xx.jpg", 0);
     add_interfaced_vertex(6,  0.0, 300, 500, "bad_clowns_xx3xx.jpg", 1);
     add_interfaced_vertex(7,  0.0, 200, 500, "bad_clowns_xx3xx.jpg", 2);
-    add_interfaced_vertex(8,  0.0, 600, 500, "bad_clowns_xx3xx.jpg", 3);
 
     /// Les arcs doivent être définis entre des sommets qui existent !
     // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
@@ -186,7 +185,6 @@ void Graph::make_example()
     add_interfaced_edge(7, 2, 0, 100.0);
     add_interfaced_edge(8, 5, 2, 20.0);
     add_interfaced_edge(9, 3, 7, 80.0);
-    add_interfaced_edge(10,8, 1 , 30.0);
 
 
 }
