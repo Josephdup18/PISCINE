@@ -139,6 +139,10 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_top_box.set_dim(1000,740);
     m_top_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
 
+ //   m_top_box.set_dim(1000,740);
+   // m_top_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Down);
+
+
     m_top_box.add_child(m_tool_box);
     m_tool_box.set_dim(80,720);
     m_tool_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
@@ -156,9 +160,126 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 /// de chargement de fichiers par exemple.
 /// Bien sûr on ne veut pas que vos graphes soient construits
 /// "à la main" dans le code comme ça.
+
+/*
+
+
+
+
+int recup_Sommet (string nom_fichier)
+{
+    ifstream Fichier(nom_fichier);
+
+    if(Fichier)
+    {
+
+        int Sommet;
+
+        Fichier>>Sommet;
+
+        return Sommet;
+
+
+    }
+    else
+
+        cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+
+
+}
+
+
+
+
+int recup_arete(string nom_fichier)
+{
+    ifstream Fichier(nom_fichier);
+
+    if(Fichier)
+    {
+
+        int trash;
+        int arete;
+
+
+        Fichier>>trash;
+        Fichier>>arete;
+
+        return arete;
+
+
+    }
+    else
+        cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+}
+
+
+
+
+
+int** remplir_tableau(std::string nom_fichier)
+{
+    std::ifstream Fichier(nom_fichier);
+
+    if(Fichier)
+    {
+
+        int Sommet;
+        int arete;
+        int ** Tab;
+
+        Fichier>>Sommet;
+        Fichier>>arete;
+
+
+        ///CREATION TABLEAU 1 lignes
+        Tab= new int* [arete];
+        ///CREATION DES 3 COLONNES
+        for (int i=0; i<arete; i++)
+        {
+            Tab[i]= new int [3];
+        }
+
+        ///LECTURE DU FICHIER POUR REMPLIR LE TABLEAU
+
+        for (int i=0; i<arete; i++)
+        {
+            for (int j=0; j<3; j++)
+            {
+                Fichier>>Tab[i][j];
+            }
+        }
+
+        return Tab;
+
+    }
+    else
+
+        std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
+}
+*/
+
+
+
+
+
+
+
 void Graph::make_example()
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
+
+
+
+
+
+
+
+
+
+
+
+
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
 

@@ -75,6 +75,8 @@
 #include <map>
 #include <string>
 #include <memory>
+#include <fstream>
+#include <iostream>
 
 #include "grman/grman.h"
 
