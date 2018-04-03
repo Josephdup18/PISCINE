@@ -148,6 +148,24 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
+
+    m_top_box.add_child(m_save);
+    m_save.set_frame(0, 0, 60, 20);
+    m_save.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
+    m_save.set_bg_color(CYAN);
+    m_save.set_moveable();
+
+
+    m_boite_boutons.add_child( m_bouton1 );
+    m_bouton1.set_frame(3,3,32,16);
+    m_bouton1.set_bg_color(FUCHSIA);
+
+    m_bouton1.add_child(m_bouton1_label);
+    m_bouton1_label.set_message("NEW");
+/*     m_top_box.add_child( m_legende );
+    m_legende.set_message("<- CLICK ME");
+    */
+
 }
 
 
