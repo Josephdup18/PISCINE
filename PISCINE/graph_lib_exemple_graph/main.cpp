@@ -1,6 +1,6 @@
 #include "grman/grman.h"
 #include <iostream>
-
+#include "Sous-Programmes.h"
 #include "graph.h"
 
 int main()
@@ -13,8 +13,8 @@ int main()
 
     /// Un exemple de graphe
     Graph g;
-    g.make_example();
-
+  // g.make_example();
+g.Afficher_sommet_fichier_txt("chaine_alimentaire_1.txt");
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )

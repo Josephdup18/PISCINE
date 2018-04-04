@@ -139,13 +139,11 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_top_box.set_dim(1000,740);
     m_top_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
 
- //   m_top_box.set_dim(1000,740);
-   // m_top_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Down);
 
 
     m_top_box.add_child(m_tool_box);
     m_tool_box.set_dim(80,720);
-    m_tool_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
+    m_tool_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_tool_box.set_bg_color(BLANCBLEU);
 
     m_top_box.add_child(m_main_box);
@@ -162,10 +160,6 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 /// "à la main" dans le code comme ça.
 
 /*
-
-
-
-
 int recup_Sommet (string nom_fichier)
 {
     ifstream Fichier(nom_fichier);
@@ -219,79 +213,35 @@ int recup_arete(string nom_fichier)
 
 int** remplir_tableau(std::string nom_fichier)
 {
-    std::ifstream Fichier(nom_fichier);
-
-    if(Fichier)
-    {
-
-        int Sommet;
-        int arete;
-        int ** Tab;
-
-        Fichier>>Sommet;
-        Fichier>>arete;
-
-
-        ///CREATION TABLEAU 1 lignes
-        Tab= new int* [arete];
-        ///CREATION DES 3 COLONNES
-        for (int i=0; i<arete; i++)
-        {
-            Tab[i]= new int [3];
-        }
-
-        ///LECTURE DU FICHIER POUR REMPLIR LE TABLEAU
-
-        for (int i=0; i<arete; i++)
-        {
-            for (int j=0; j<3; j++)
-            {
-                Fichier>>Tab[i][j];
-            }
-        }
-
-        return Tab;
-
     }
-    else
-
-        std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
-}
 */
-
-
-
-
 
 
 
 void Graph::make_example()
 {
-    m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
-
-
-
-
-
-
-
-
-
-
-
+    m_interface=std::make_shared<GraphInterface>(50, 0, 750, 600);
 
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
 
     /// Les sommets doivent être définis avant les arcs
-    // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
-    add_interfaced_vertex(0, 30.0, 200, 100, "renard.jpg");
+    /// Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
+
+
+
+
+
+
+  // Afficher_sommet_fichier_txt("chaine_alimentaire_1.txt");
+
+
+    /*add_interfaced_vertex(0, 30.0, 200, 100, "renard.jpg");
     add_interfaced_vertex(1, 60.0, 400, 100, "rouge-gorge.jpg");
     add_interfaced_vertex(2,  50.0, 200, 300, "araignee.jpg");
     add_interfaced_vertex(3,  50.0, 400, 300, "papillon.jpg");
     add_interfaced_vertex(4,  50.0, 500, 115, "vegetaux.jpg");
-
-
+*/
 
     /// Les arcs doivent être définis entre des sommets qui existent !
     /// AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
@@ -303,6 +253,52 @@ void Graph::make_example()
 
 
 }
+
+
+void Graph::Afficher_sommet_fichier_txt(std::string nom_fichier)
+{
+
+    m_interface=std::make_shared<GraphInterface>(50, 0, 750, 600);
+    std::ifstream Fichier(nom_fichier);
+
+    if(Fichier)
+    {
+
+        int Sommet;
+        Fichier>>Sommet;
+        int numSom, nbre_indi, posx, posy;
+        std::string chaine;
+
+        ///LECTURE DU FICHIER POUR REMPLIR LE TABLEAU
+
+        for (int i=0; i<Sommet; i++)
+        {
+                 Fichier>> numSom >> nbre_indi >> posx >> posy;
+                 getline(Fichier, chaine);
+                 add_interfaced_vertex(numSom, nbre_indi, posx,posy, chaine);
+
+
+        }
+
+
+    }
+    else
+
+        std::cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << std::endl;
+
+
+
+
+    add_interfaced_edge(0, 0, 1, 50.0);
+    add_interfaced_edge(1, 1, 2, 50.0);
+    add_interfaced_edge(2, 2, 3, 75.0);
+    add_interfaced_edge(3, 3, 4, 25.0);
+
+}
+
+
+
+
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()

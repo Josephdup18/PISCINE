@@ -1,0 +1,6 @@
+5
+0 30 200 300renard.jpg
+1 40 400 100rouge-gorge.jpg
+2 50 200 300araignee.jpg
+3 50 400 300papillon.jpg
+4 50 500 115vegetaux.jpg

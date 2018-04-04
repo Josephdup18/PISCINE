@@ -77,7 +77,7 @@
 #include <memory>
 #include <fstream>
 #include <iostream>
-
+#include "Sous-Programmes.h"
 #include "grman/grman.h"
 
 /***************************************************
@@ -300,7 +300,7 @@ class Graph
 
         void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
-
+        void Afficher_sommet_fichier_txt (std::string nom_fichier);
         /// Méthode spéciale qui construit un graphe arbitraire (démo)
         /// Voir implémentation dans le .cpp
         /// Cette méthode est à enlever et remplacer par un système
